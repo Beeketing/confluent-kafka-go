@@ -40,7 +40,7 @@ High-level balanced consumer
 ```golang
 import (
 	"fmt"
-	"github.com/confluentinc/confluent-kafka-go/kafka"
+	"github.com/Beeketing/confluent-kafka-go/kafka"
 )
 
 func main() {
@@ -76,7 +76,7 @@ Producer
 ```golang
 import (
 	"fmt"
-	"github.com/confluentinc/confluent-kafka-go/kafka"
+	"github.com/Beeketing/confluent-kafka-go/kafka"
 )
 
 func main() {

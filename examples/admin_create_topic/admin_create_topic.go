@@ -20,10 +20,11 @@ package main
 import (
 	"context"
 	"fmt"
-	"github.com/confluentinc/confluent-kafka-go/kafka"
 	"os"
 	"strconv"
 	"time"
+
+	"github.com/Beeketing/confluent-kafka-go/kafka"
 )
 
 func main() {

@@ -34,8 +34,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/confluentinc/confluent-kafka-go/kafka"
-	"time"
+	"github.com/Beeketing/confluent-kafka-go/kafka"
 )
 
 func main() {
