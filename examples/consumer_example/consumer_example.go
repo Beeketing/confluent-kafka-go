@@ -43,10 +43,10 @@ func main() {
 	signal.Notify(sigchan, syscall.SIGINT, syscall.SIGTERM)
 
 	c, err := kafka.NewConsumer(&kafka.ConfigMap{
-		"bootstrap.servers":    broker,
-		"group.id":             group,
-		"session.timeout.ms":   6000,
-		"default.topic.config": kafka.ConfigMap{"auto.offset.reset": "earliest"}})
+		"bootstrap.servers":  broker,
+		"group.id":           group,
+		"session.timeout.ms": 6000,
+		"auto.offset.reset":  "earliest"})
 
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Failed to create consumer: %s\n", err)
@@ -77,11 +77,9 @@ func main() {
 				if e.Headers != nil {
 					fmt.Printf("%% Headers: %v\n", e.Headers)
 				}
-			case kafka.PartitionEOF:
-				fmt.Printf("%% Reached %v\n", e)
 			case kafka.Error:
+				// Errors should generally be considered as informational, the client will try to automatically recover
 				fmt.Fprintf(os.Stderr, "%% Error: %v\n", e)
-				run = false
 			default:
 				fmt.Printf("Ignored %v\n", e)
 			}
